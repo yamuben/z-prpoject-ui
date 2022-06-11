@@ -1,0 +1,23 @@
+.profile-container{
+    /* background:violet; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+.profile-pic{
+    width:20%;
+    border-radius: 50%;
+
+    position: relative;
+    animation-name: slide-animation !important;
+    animation-duration: 2s !important;
+
+}
+
+
+
+@keyframes slide-animation {
+    0%   {left:20px; top:0px;}
+    100% {left:0px; top:0px;}
+  }
