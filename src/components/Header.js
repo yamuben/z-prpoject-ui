@@ -39,7 +39,7 @@ export default function Header() {
           }}
         >
           <img src={logo} height="90%" />
-          <Typography sx={{ minWidth: 200,fontWeight:"800" }} variant="h4" component="p">ZCompany</Typography>
+          <Typography className="logoText" sx={{ minWidth: 200,fontWeight:"800", }} variant="h4" component="p">ZCompany</Typography>
         </Box>
 
         <Box

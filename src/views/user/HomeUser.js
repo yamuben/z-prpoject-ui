@@ -63,7 +63,13 @@ const HomeUser = () => {
       <Header />
       <Box sx={{ width: "100%", minHeight:"80vh",position: "relative"}} className="profile-container">
         <Box sx={{ width: "100%" }} className="profile-container">
+          <Box sx={{width:"20%",textAlign:"center"}}>
           <img src={pic} alt="Profile" className="profile-pic" />
+          
+          <Typography variant="h6" component="p">
+              @{data.names}
+            </Typography>
+          </Box>
           <Divider orientation="vertical" variant="middle" flexItem />
           <Box
             sx={{
