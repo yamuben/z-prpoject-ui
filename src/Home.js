@@ -1,21 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useOktaAuth } from "@okta/okta-react";
 import "./index.css";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import LoadingButton from "@mui/lab/LoadingButton";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import { notification } from "antd";
+
+import { checkEmail, signinUser } from "./redux/actions/auth";
 
 import Box from "@mui/material/Box";
 import { Paper, Button, Typography, TextField } from "@mui/material";
 import logo from "./assets/zlogo.png";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   const history = useHistory();
   const [nextInput, setNextInput] = useState(0);
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { authState, oktaAuth } = useOktaAuth();
   const login = () => oktaAuth.signInWithRedirect({ originalUri: "/profile" });
+
+  const { loading, status, email } = useSelector(({ auth }) => auth.email);
+  const { signin } = useSelector(({ auth }) => auth);
+  const verifyEmail = (data) => {
+    checkEmail(data)(dispatch);
+  };
+  useEffect(() => {
+    if (signin?.status == 200) {
+      history.push("/auth");
+    }
+    if (status === 200) {
+      setNextInput(1);
+    } else {
+      console.log("*******");
+      return notification.error({ message: "User not registered!" });
+    }
+  }, [status,signin?.status]);
+  const loginUser = (data) => {
+    signinUser(data)(dispatch);
+  };
 
   // if (!authState) {
   //   return <div>Loading authentication...</div>;
@@ -44,34 +74,46 @@ const Home = () => {
           padding: "30px",
         }}
       >
-        <img src={logo} alt="logo" className="logo" onClick={()=>{ setNextInput(0)}} />
+        <img
+          src={logo}
+          alt="logo"
+          className="logo"
+          onClick={() => {
+            setNextInput(0);
+          }}
+        />
 
         <Typography variant="h5" component="p">
           Signin
         </Typography>
 
-        {nextInput == 0 ? (
+        {!status ? (
           <>
             {/* <Input  placeholder="email" /> */}
 
             <TextField
+              autoFocus={true}
               id="standard-basic"
               label="Email"
               variant="standard"
-              value={email}
-              onChange={(e)=>{ setEmail(e.target.value)}}
+              value={emailInput}
+              required
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+              }}
               sx={{ width: "70%" }}
             />
-            <Button
+            <LoadingButton
               variant="contained"
+              loading={loading}
               sx={{ width: "70%", marginTop: "15px" }}
               onClick={() => {
-                setNextInput(1);
+                verifyEmail({ email: emailInput });
               }}
             >
               {" "}
               Next
-            </Button>
+            </LoadingButton>
           </>
         ) : (
           <div className="signin-div">
@@ -81,19 +123,23 @@ const Home = () => {
               type="password"
               variant="standard"
               value={password}
-              onChange={(e)=>{ setPassword(e.target.value)}}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               sx={{ width: "100%" }}
             />
-            <Button
+            <LoadingButton
+              loading={signin?.loading}
               variant="contained"
               sx={{ width: "100%", marginTop: "15px" }}
               onClick={() => {
-               history.push("/profile/user")
+                loginUser({ email, password });
+                // history.push("/auth");
               }}
             >
               {" "}
               Signin
-            </Button>
+            </LoadingButton>
           </div>
         )}
         <Divider sx={{ width: "60%", marginTop: "10px" }}>

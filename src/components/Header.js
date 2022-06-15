@@ -12,11 +12,14 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import {useHistory} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {logoutUser} from "../redux/actions/auth"
 
 import logo from "../assets/zlogo.png";
 import "./header.css";
 
 export default function Header() {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const history = useHistory()
@@ -107,7 +110,10 @@ export default function Header() {
           <Avatar /> Update Profile
         </MenuItem>
         <Divider />
-        <MenuItem onClick={()=>{history.push("/")}}>
+        <MenuItem onClick={()=>{
+          logoutUser()(dispatch);
+          history.push("/home")
+          window.location.reload()}}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

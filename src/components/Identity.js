@@ -13,7 +13,7 @@ const IdentityInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.nationality}
+              {data?.nationality}
             </Typography>
           }
           secondary={
@@ -25,7 +25,7 @@ const IdentityInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.nid}
+              {data?.nid}
             </Typography>
           }
           secondary={
@@ -39,7 +39,7 @@ const IdentityInfos = ({ data }) => {
           secondary={
             <Typography variant="h7" component="p" sx={{ color: "#575050" }}>
               Attachment{" "}
-              {data.statusVerification === "verified" ? (
+              {data?.statusVerification === "verified" ? (
                 <Tooltip title="Verified.">
                   <CheckCircleIcon sx={{color:"green"}} />
                 </Tooltip>

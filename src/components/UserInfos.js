@@ -11,7 +11,7 @@ const UserInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.gender}
+              {data?.gender}
             </Typography>
           }
           secondary={
@@ -23,7 +23,7 @@ const UserInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.maritalStatus}
+              {data?.maritalStatus}
             </Typography>
           }
           secondary={
@@ -35,7 +35,7 @@ const UserInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.age}
+              {data?.age}
             </Typography>
           }
           secondary={
@@ -47,7 +47,7 @@ const UserInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data.dateOfBirth}
+              {data?.dateOfBirth}
             </Typography>
           }
           secondary={
