@@ -9,7 +9,9 @@ import {
   CHECK_EMAIL,
   CHECK_EMAIL_FAILED,
   OTP_AUTHENTICATION,
-  OTP_AUTHENTICATION_FAILED,LOGOUT_USERS,LOGOUT_USERS_FAILED,
+  OTP_AUTHENTICATION_FAILED,
+  LOGOUT_USERS,
+  LOGOUT_USERS_FAILED,
   LOADING_USER,
   SIGNUP_USER,
   SIGNUP_USER_FAILED,
@@ -75,8 +77,6 @@ export const signinUser = (payload) => async (dispatch) => {
   }
 };
 
-
-
 export const signupUser = (payload) => async (dispatch) => {
   dispatch({ type: LOADING_USER, payload: { loading: true } });
   try {
@@ -106,14 +106,10 @@ export const signupUser = (payload) => async (dispatch) => {
   }
 };
 
-
-
 export const registerUserIdentity = (payload) => async (dispatch) => {
   dispatch({ type: LOADING_USER, payload: { loading: true } });
   try {
-    console.log("><>>>kkkkkk>>>>>>",payload)
     const user = await authService.updateUserIdentity(payload);
-console.log( "<>>>>>>>>>",user)
     if (user?.status === 201) {
       dispatch({ type: LOADING_USER, payload: { loading: false } });
       dispatch({
@@ -128,15 +124,17 @@ console.log( "<>>>>>>>>>",user)
         type: GET_USER_PROFILE,
         payload: {
           status: user.status,
-          message:user.body.message,
+          message: user.body.message,
           user: user.body.data,
         },
       });
-
     } else {
       dispatch({
         type: UPDATE_IDENTIFICATION_FAILED,
-        payload: { status: 400, message: "Failed to save new Identity document" },
+        payload: {
+          status: 400,
+          message: "Failed to save new Identity document",
+        },
       });
       dispatch({ type: LOADING_USER, payload: { loading: false } });
     }
@@ -144,9 +142,6 @@ console.log( "<>>>>>>>>>",user)
     dispatch({ type: LOADING_USER, payload: { loading: false } });
   }
 };
-
-
-
 
 export const getUserProfile = () => async (dispatch) => {
   dispatch({ type: LOADING_USER, payload: { loading: true } });
@@ -160,7 +155,7 @@ export const getUserProfile = () => async (dispatch) => {
         type: GET_USER_PROFILE,
         payload: {
           status: user.status,
-          message:user.body.message,
+          message: user.body.message,
           user: user.body.data,
         },
       });
@@ -175,7 +170,6 @@ export const getUserProfile = () => async (dispatch) => {
     dispatch({ type: LOADING_USER, payload: { loading: false } });
   }
 };
-
 
 export const signinUserWithOTP = (payload) => async (dispatch) => {
   dispatch({ type: LOADING_USER, payload: { loading: true } });
@@ -293,3 +287,4 @@ export const logoutUser = () => async (dispatch) => {
 
   dispatch({ type: LOADING_USER, payload: { loading: false } });
 };
+// 0783786384 sarah
