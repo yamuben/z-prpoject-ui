@@ -27,7 +27,7 @@ const reject = (error) => {
 
 const instance = axios.create({
   // eslint-disable-next-line no-undef
-  baseURL: "https://z-project-irrembo.herokuapp.com/",
+  baseURL: "https://z-project-irrembo.herokuapp.com",
 
   // baseURL: "http://localhost:8080/api/v1/user",
   headers: {
