@@ -118,7 +118,7 @@ const Home = () => {
             }}
           >
             <MenuItem value={"passport"}>Passport</MenuItem>
-            <MenuItem value={"nationalId"}>National Identity</MenuItem>
+            <MenuItem value={"national"}>National Identity</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -136,6 +136,7 @@ const Home = () => {
           variant="contained"
           sx={{ width: "100%", marginTop: "15px" }}
           onClick={() => {
+            console.log("......",handleSubmit())
             registerUserIdentity(handleSubmit())(dispatch);
           }}
         >

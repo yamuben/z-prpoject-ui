@@ -25,17 +25,17 @@ const IdentityInfos = ({ data }) => {
         <ListItemText
           primary={
             <Typography variant="h6" component="p">
-              {data?.nid}
+              {data?.identityDoc.docId}
             </Typography>
           }
           secondary={
             <Typography variant="h7" component="p" sx={{ color: "#575050" }}>
-              National / Passport ID
+            {data?.identityDoc.docType!=="passport"?"National ID":"Passport ID"} 
             </Typography>
           }
         />
         <ListItemText
-          primary={<img src={nidDocument} width="100%" alt="Attach" />}
+          primary={<img src={data?.identityDoc.docPicture} width="100%" alt="Attach" />}
           secondary={
             <Typography variant="h7" component="p" sx={{ color: "#575050" }}>
               Attachment{" "}

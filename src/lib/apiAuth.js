@@ -7,6 +7,9 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import {notification} from "antd";
 
+
+
+
 const resolve = (response) => {
   const { data } = response;
   return { ...response, data: undefined, body: data };
@@ -27,9 +30,9 @@ const reject = (error) => {
 
 const instance = axios.create({
   // eslint-disable-next-line no-undef
-  baseURL: "https://z-project-irrembo.herokuapp.com/api/v1/user",
+  // baseURL: "https://z-project-irrembo.herokuapp.com/api/v1/user",
 
-  // baseURL: "http://localhost:8080/api/v1/user",
+  baseURL: "http://localhost:8080/api/v1/user",
   headers: {
     "Content-Type": "application/json",
     "x-auth-token": `${store.get("x-auth-token")}`,

@@ -1,0 +1,104 @@
+[
+    {
+        "_id": "62a9c92304275e8c553a7a5c",
+        "picture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655293975/wmqu0kdt0i107quavcrw.jpg",
+        "names": "BENJAMIN IYAMUREMYErw",
+        "gender": "male",
+        "age": 13,
+        "dateOfBirth": null,
+        "nationality": "rwa",
+        "maritalStatus": "married",
+        "userAccount": {
+            "_id": "62a9c92304275e8c553a7a5a",
+            "phone": "0787082328",
+            "email": "vmvp.org@gmail.com",
+            "role": "user",
+            "isActive": true,
+            "statusVerification": "pending"
+        },
+        "__v": 0,
+        "identityDoc": {
+            "_id": "62af8fcb06b9d90f7ba0cc29",
+            "docId": "1212121212121212",
+            "docType": "national",
+            "docPicture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655672776/vldsgssw29ekscunn4i7.jpg",
+            "__v": 0
+        }
+    },
+    {
+        "_id": "62a9e4fcf98c03595d323e17",
+        "picture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655301367/jbb7pruwn4pfyajgqyle.jpg",
+        "names": "feziju Bennita",
+        "gender": "female",
+        "age": 12,
+        "dateOfBirth": null,
+        "nationality": "tanza",
+        "maritalStatus": "single",
+        "userAccount": {
+            "_id": "62a9e4fcf98c03595d323e15",
+            "phone": "0787823208",
+            "email": "user@gmail.com",
+            "role": "user",
+            "isActive": false,
+            "statusVerification": "unverified"
+        },
+        "__v": 0
+    },
+    {
+        "_id": "62a9e548f98c03595d323e1d",
+        "picture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655301367/jbb7pruwn4pfyajgqyle.jpg",
+        "names": "feziju Bennita",
+        "gender": "female",
+        "age": 12,
+        "dateOfBirth": null,
+        "nationality": "tanza",
+        "maritalStatus": "single",
+        "userAccount": {
+            "_id": "62a9e548f98c03595d323e1b",
+            "phone": "0787823282",
+            "email": "usera@gmail.com",
+            "role": "user",
+            "isActive": false,
+            "statusVerification": "unverified"
+        },
+        "__v": 0
+    },
+    {
+        "_id": "62a9e619f98c03595d323e23",
+        "picture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655301637/kejlwfries2jhrijirsm.jpg",
+        "names": "feziju Bennita",
+        "gender": "female",
+        "age": 12,
+        "dateOfBirth": null,
+        "nationality": "tanza",
+        "maritalStatus": "single",
+        "userAccount": {
+            "_id": "62a9e619f98c03595d323e21",
+            "phone": "0787823282",
+            "email": "ben@gmail.com",
+            "role": "user",
+            "isActive": true,
+            "statusVerification": "unverified"
+        },
+        "__v": 0
+    },
+    {
+        "_id": "62b03e9e06b9d90f7ba0cc6c",
+        "picture": "https://res.cloudinary.com/motion-codehouse/image/upload/v1655279119/ak4cynqioubta2nvyz05.jpg",
+        "names": "BENJAMIN IYAMUREMYE",
+        "gender": "male",
+        "age": 21,
+        "dateOfBirth": null,
+        "nationality": "rw",
+        "maritalStatus": "single",
+        "userAccount": {
+            "_id": "62b03e9d06b9d90f7ba0cc6a",
+            "phone": "0787082328",
+            "email": "admin@gmail.com",
+            "role": "user",
+            "isActive": false,
+            "statusVerification": "unverified"
+        },
+        "__v": 0
+    }
+]

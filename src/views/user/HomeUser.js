@@ -85,7 +85,11 @@ const HomeUser = () => {
       nid: "11998800112230",
     };
   };
-  useEffect(()=>{},[userProfile?.status]);
+  useEffect(()=>{
+    if(!userProfile?.token){
+      window.location.reload()
+    }
+  },[userProfile?.status]);
   useEffect(() => {
     getUserProfile()(dispatch);
     if (userProfile?.status === 200) {
